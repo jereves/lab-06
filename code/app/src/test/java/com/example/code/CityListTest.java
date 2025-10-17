@@ -1,6 +1,10 @@
 package com.example.code;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * This tests all methods of CityList class
+ */
 public class CityListTest {
     private CityList mockCityList(){
         CityList cityList = new CityList();
@@ -101,8 +105,14 @@ public class CityListTest {
 
         CityList cityList = mockCityList();
 
-        // add calgary as city to delete
+        // city count should be one
+        assertEquals(1, cityList.getCities().size());
+
+
+        // add calgary as city to add then delete
         City city = new City("Calgary", "AB");
+
+        // add city
         cityList.add(city);
 
         // assert that there should be two cities
@@ -111,6 +121,7 @@ public class CityListTest {
         // delete one city
         cityList.deleteCity(city);
 
+        // city should be 1
         assertEquals(1, cityList.getCities().size());
     }
 
