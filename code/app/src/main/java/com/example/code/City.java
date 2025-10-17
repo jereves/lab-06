@@ -1,6 +1,13 @@
 package com.example.code;
 
-public class City {
+import androidx.annotation.NonNull;
+
+/**
+* This is a class that defines a City
+ * defined by name and province
+*/
+
+public class City implements Comparable {
     private String name;
     private String province;
 
@@ -25,5 +32,13 @@ public class City {
         this.province = province;
     }
 
+    @Override
+    public int compareTo(Object o) {
+
+        City city = (City) o; //typecasting
+        return this.name.compareTo(
+                // sort city object based on alphabetic order
+                city.getName());
+    }
 }
 
